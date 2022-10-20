@@ -15,8 +15,8 @@ spec:
       spec:
           containers:
               - name : hello1
-                image: hello1:latest
-                imagePullPolicy: Never
+                image: lvlal2iko/hello1:v1
+                #imagePullPolicy: Never
                 env:
                 - name: REDIS_PASSWORD
                   valueFrom:

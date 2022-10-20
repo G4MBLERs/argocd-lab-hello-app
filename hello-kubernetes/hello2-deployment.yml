@@ -15,8 +15,8 @@ spec:
       spec:
           containers:
               - name : hello2
-                image: hello2:latest
-                imagePullPolicy: Never
+                image: lvlal2iko/hello2:v1
+                #imagePullPolicy: Never
                 env:
                 - name: REDIS_HOST
                   valueFrom:
@@ -30,7 +30,6 @@ spec:
                     secretKeyRef:
                       name: redis-secret
                       key: redis-password
-
 ---
 apiVersion: v1
 kind : Service
