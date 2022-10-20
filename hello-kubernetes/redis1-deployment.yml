@@ -1,0 +1,38 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+    name: redis1-deployment
+spec:
+  replicas : 1 
+  selector:
+      matchLabels:
+        app: redis1
+  template:
+      metadata:
+        name: redis1-pods
+        labels: 
+            app: redis1
+      spec:
+          containers:
+              - name : redis1
+                image: redis:latest
+                volumeMounts:
+                  - name: redis1-data
+                    mountPath: /data
+          volumes:
+            - name: redis1-data
+              persistentVolumeClaim:
+                claimName: redis1-pvc
+---
+apiVersion: v1
+kind : Service
+metadata:
+    name: redis1-service
+spec:
+    type: ClusterIP
+    selector:
+      app: redis1
+    ports:
+      - port: 6379
+        targetPort: 6379
+
