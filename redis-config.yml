@@ -1,7 +1,0 @@
-apiVersion: v1
-kind: ConfigMap
-metadata:
-  name: redis-config
-data:
-  redis1-url: redis1-service
-  redis2-url: redis2-service:6379
